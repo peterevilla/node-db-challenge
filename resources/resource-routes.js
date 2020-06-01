@@ -26,7 +26,7 @@ router.get('/:id', (req, res) => {
 })
 
 router.post('/', (req, res) => {
-    console.log(req)
+    console.log(req.body)
     Resources.add(req.body)
     .then(resources => {
         res.status(201).json(resources)

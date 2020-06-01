@@ -20,7 +20,11 @@ function findById(id) {
   }
 
 function add(task) {
-    return db('tasks').insert(task);
+  return db('tasks')
+  .insert(task)
+  .then(ids => {
+    return findById(ids[0]);
+  });
 
   }
 
