@@ -4,7 +4,7 @@ const server = express();
 const ProjectRouter = require('./projects/project-routes')
 const TasksRouter = require('./tasks/task-routes')
 const ResourcesRouter = require('./resources/resource-routes')
-const db = require('./data/db-config')
+const db = require('./datas/db-config')
 server.use(express.json());
 server.use('/api/projects', ProjectRouter)
 server.use('/api/tasks', TasksRouter)
