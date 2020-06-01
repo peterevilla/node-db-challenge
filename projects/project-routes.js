@@ -35,7 +35,7 @@ router.post('/', (req, res) => {
 })
 
 router.delete('/:id', (req, res) => {
-    db.remove(req.params.id)
+    Projects.remove(req.params.id)
     .then(project => {
         res.status(201).json({message: 'Project was deleted'})
     })
@@ -45,15 +45,15 @@ router.delete('/:id', (req, res) => {
 })
 
 
-// router.put('/:id', (req, res) => {
-//     db.update(req.params.id, req.body)
-//     .where(car => {
-//         res.status(201).json({message: 'car was updated'})
-//     })
-//     .catch(error => {
-//         res.status(500).json({message: 'error'})
-//     })
-// })
+router.put('/:id', (req, res) => {
+    Projects.update(req.params.id, req.body)
+    .where(project => {
+        res.status(201).json({message: 'Project was updated'})
+    })
+    .catch(error => {
+        res.status(500).json({message: 'error'})
+    })
+})
 
 
 
