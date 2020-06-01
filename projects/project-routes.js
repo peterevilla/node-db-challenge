@@ -15,7 +15,7 @@ router.get('/', (req, res) => {
 
 router.get('/:id', (req, res) => {
     const { id } = req.params
-    db.findById(id)
+    Projects.findById(id)
     .then(project => {
         res.status(201).json(project)
     })
@@ -34,15 +34,15 @@ router.post('/', (req, res) => {
     })
 })
 
-// router.delete('/:id', (req, res) => {
-//     db.remove(req.params.id)
-//     .then(car => {
-//         res.status(201).json({message: 'Car was deleted'})
-//     })
-//     .catch(err => {
-//         res.status(500).json({message: 'error'})
-//     })
-// })
+router.delete('/:id', (req, res) => {
+    db.remove(req.params.id)
+    .then(project => {
+        res.status(201).json({message: 'Project was deleted'})
+    })
+    .catch(err => {
+        res.status(500).json({message: 'error'})
+    })
+})
 
 
 // router.put('/:id', (req, res) => {
